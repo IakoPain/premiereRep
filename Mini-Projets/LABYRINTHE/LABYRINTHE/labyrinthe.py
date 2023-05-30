@@ -18,12 +18,8 @@ VERT=(0,255,0)
 BLANC=(255,255,255)
 CARRE=7
 win=0
+global f
 f = open("map.csv", "r")
-
-if win == 0:
-    f = open("map.csv", "r")
-elif win ==1:
-    f = open("map2.csv", "r")
 c = csv.reader(f, delimiter=',')
 tableau = []
 for ligne in c:
@@ -54,6 +50,8 @@ img2_3=pygame.image.load("img_dungeon/2-3.gif")
 img3_1=pygame.image.load("img_dungeon/3-1.gif")
 img3_2=pygame.image.load("img_dungeon/3-2.gif")
 img4_1=pygame.image.load("img_dungeon/4-1.gif")
+img4_2=pygame.image.load("img_dungeon/4-2.gif")
+img4_3=pygame.image.load("img_dungeon/4-3.gif")
 
 
 #background 4
@@ -64,7 +62,10 @@ def b02():
     fenetre.blit(img0_2,(278,60))
 
 def b03():
-    fenetre.blit(img0_3,(149,60))
+    if  x == 21 and y == 7:
+        fenetre.blit(img4_3,(149,60))
+    else:
+        fenetre.blit(img0_3,(149,60))
 
 #background 3
 def b11():
@@ -74,7 +75,10 @@ def b12():
     fenetre.blit(img1_2,(298,49))
 
 def b13():
-    fenetre.blit(img1_3,(120,49))
+    if  x == 22 and y == 7:
+        fenetre.blit(img4_2,(120,49))
+    else:
+        fenetre.blit(img1_3,(120,49))
 
 #background 2
 def b21():
@@ -84,7 +88,10 @@ def b22():
     fenetre.blit(img2_2,(328,22))
 
 def b23():
-    fenetre.blit(img2_3,(64,22))
+    if x == 23 and y == 7:
+        fenetre.blit(img4_1,(64,22))
+    else:
+        fenetre.blit(img2_3,(64,22))
 
 #background 1
 def b31():
@@ -231,6 +238,7 @@ def afficheMurOuest():
 def testDeplacement(touche):
     global x,y,d
     global startTempo
+    global win
     if touche in ['a','z','e','q','s','d']:
         if (((touche == 'd' and d==0) or (touche == 'z' and d==1)or(touche == 'q' and d==2)or(touche == 's' and d==3)) and  tableau[y][x+1] == '1' ):
             x=x+1
@@ -248,8 +256,18 @@ def testDeplacement(touche):
             tableau[13][8]='1'
             startTempo=time.clock()
             #print("match",startTempo)
-        if x == 25 and y == 8:
-            open("map2.csv", "r")
+        if x == 24 and y == 7:
+            d=2 #0 nord, 1 est ,2 sud,3 ouest
+            x=2 #depart
+            y=25
+            afficheCarte(450,-205)
+        if x == 24 and y == 26:
+            d=2 #0 nord, 1 est ,2 sud,3 ouest
+            x=8 #depart
+            y=47
+            afficheCarte(450,-410)
+
+
 
         afficheMurs()
 
