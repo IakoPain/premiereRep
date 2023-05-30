@@ -1,0 +1,9 @@
+body {
+    background-color : #feff99;
+}
+div.tableau {
+    border: 2px;
+    border-color: red;
+    position : fixed;
+
+}

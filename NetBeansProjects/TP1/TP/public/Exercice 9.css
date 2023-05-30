@@ -1,0 +1,12 @@
+body {
+    background-color: #ffff99;
+    font-family: verdana;
+    color: blue;
+    font-size: 20px;
+}
+
+h1 {
+    color: red;
+    font-size: 50px;
+    text-align: center
+}
