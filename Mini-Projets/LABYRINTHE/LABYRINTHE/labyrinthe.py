@@ -1,5 +1,5 @@
 ﻿"""
-Programme réalisé par nom, prénom, classe
+Programme réalisé par Pain, Iako, 1G7
 """
 import pygame
 import csv
@@ -53,59 +53,120 @@ img4_1=pygame.image.load("img_dungeon/4-1.gif")
 img4_2=pygame.image.load("img_dungeon/4-2.gif")
 img4_3=pygame.image.load("img_dungeon/4-3.gif")
 
+img0b=pygame.image.load("img_dungeon/0b.gif")
+img0_1b=pygame.image.load("img_dungeon/0-1b.gif")
+img0_2b=pygame.image.load("img_dungeon/0-2b.gif")
+img0_3b=pygame.image.load("img_dungeon/0-3b.gif")
+img1_1b=pygame.image.load("img_dungeon/1-1b.gif")
+img1_2b=pygame.image.load("img_dungeon/1-2b.gif")
+img1_3b=pygame.image.load("img_dungeon/1-3b.gif")
+img2_1b=pygame.image.load("img_dungeon/2-1b.gif")
+img2_2b=pygame.image.load("img_dungeon/2-2b.gif")
+img2_3b=pygame.image.load("img_dungeon/2-3b.gif")
+img3_1b=pygame.image.load("img_dungeon/3-1b.gif")
+img3_2b=pygame.image.load("img_dungeon/3-2b.gif")
+img4_1b=pygame.image.load("img_dungeon/4-1b.gif")
+img4_2b=pygame.image.load("img_dungeon/4-2b.gif")
+img4_3b=pygame.image.load("img_dungeon/4-3b.gif")
+
 
 #background 4
 def b01():
-    fenetre.blit(img0_1,(0,60))
+    if win == 0:
+        fenetre.blit(img0_1,(0,60))
+    elif win == 1:
+        fenetre.blit(img0_1b,(0,60))
 
 def b02():
-    fenetre.blit(img0_2,(278,60))
+    if win == 0:
+        fenetre.blit(img0_2,(278,60))
+    elif win == 1:
+        fenetre.blit(img0_2b,(278,60))
 
 def b03():
-    if  x == 21 and y == 7:
-        fenetre.blit(img4_3,(149,60))
-    else:
-        fenetre.blit(img0_3,(149,60))
+    if win == 0:
+        if  x == 22 and y == 7:
+            fenetre.blit(img4_3,(149,60))
+        else:
+            fenetre.blit(img0_3,(149,60))
+    elif win == 1:
+        if  x == 22 and y == 7:
+            fenetre.blit(img4_3b,(149,60))
+        else:
+            fenetre.blit(img0_3b,(149,60))
 
 #background 3
 def b11():
-    fenetre.blit(img1_1,(0,49))
+    if win == 0:
+        fenetre.blit(img1_1,(0,49))
+    elif win == 1:
+        fenetre.blit(img1_1b,(0,49))
 
 def b12():
-    fenetre.blit(img1_2,(298,49))
+    if win == 0:
+        fenetre.blit(img1_2,(298,49))
+    elif win == 1:
+        fenetre.blit(img1_2b,(298,49))
 
 def b13():
-    if  x == 22 and y == 7:
-        fenetre.blit(img4_2,(120,49))
-    else:
-        fenetre.blit(img1_3,(120,49))
+    if win == 0:
+        if  x == 23 and y == 7:
+            fenetre.blit(img4_2,(120,49))
+        else:
+            fenetre.blit(img1_3,(120,49))
+    elif win == 1:
+        if  x == 23 and y == 7:
+            fenetre.blit(img4_2b,(120,49))
+        else:
+            fenetre.blit(img1_3b,(120,49))
 
 #background 2
 def b21():
-    fenetre.blit(img2_1,(0,22))
+    if win == 0:
+        fenetre.blit(img2_1,(0,22))
+    elif win == 1:
+        fenetre.blit(img2_1b,(0,22))
 
 def b22():
-    fenetre.blit(img2_2,(328,22))
+    if win == 0:
+        fenetre.blit(img2_2,(328,22))
+    elif win == 1:
+        fenetre.blit(img2_2b,(328,22))
 
 def b23():
-    if x == 23 and y == 7:
-        fenetre.blit(img4_1,(64,22))
-    else:
-        fenetre.blit(img2_3,(64,22))
+    if win == 0:
+        if x == 24 and y == 7:
+            fenetre.blit(img4_1,(64,22))
+        else:
+            fenetre.blit(img2_3,(64,22))
+    elif win == 1:
+        if x == 24 and y == 7:
+            fenetre.blit(img4_1b,(64,22))
+        else:
+            fenetre.blit(img2_3b,(64,22))
 
 #background 1
 def b31():
-    fenetre.blit(img3_1,(0,0))
+    if win == 0:
+        fenetre.blit(img3_1,(0,0))
+    elif win == 1:
+        fenetre.blit(img3_1b,(0,0))
 
 def b32():
-    fenetre.blit(img3_2,(384,0))
-
+    if win == 0:
+        fenetre.blit(img3_2,(384,0))
+    elif win == 1:
+        fenetre.blit(img3_2b,(384,0))
 
 
 def base():
+    if win == 0:
 #affiche du fond du labyrinthe
-    fenetre.blit(img0,(0,0))  #afficher l'image à la prochaine actualisation
-    afficheCarte(450,0)
+        fenetre.blit(img0,(0,0))  #afficher l'image à la prochaine actualisation
+        afficheCarte(450,0)
+    elif win == 1:
+        fenetre.blit(img0b,(0,0))  #afficher l'image à la prochaine actualisation
+        afficheCarte(450,-100)
 
 def afficheMurNord():
 #background 0
@@ -260,11 +321,13 @@ def testDeplacement(touche):
             d=2 #0 nord, 1 est ,2 sud,3 ouest
             x=2 #depart
             y=25
+            win=1
             afficheCarte(450,-205)
         if x == 24 and y == 26:
             d=2 #0 nord, 1 est ,2 sud,3 ouest
             x=8 #depart
             y=47
+            win=2
             afficheCarte(450,-410)
 
 
