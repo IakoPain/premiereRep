@@ -1,0 +1,21 @@
+# Exercice 5
+menu="0"
+nb1=int(input("Nombre1"))
+nb2=int(input("Nombre2"))
+while menu!='q':
+    print("------------------------------------------------------------")
+    print("1 : Addition")
+    print("2 : Soustraction")
+    print("3 : Multiplication")
+    print("4 : Division")
+    print("q : quitter")
+    print("------------------------------------------------------------")
+    menu=input("votre choix ?")
+    if menu== "1":
+        print(nb1 + nb2)
+    if menu== "2":
+        print(nb1 - nb2)
+    if menu== "3":
+        print(nb1 * nb2)
+    if menu== "4":
+        print(nb1 / nb2)
