@@ -1,0 +1,19 @@
+body {
+    background-color: #ffff99;
+    font-family: verdana;
+    color: blue;
+    font-size: 20px;
+}
+
+#titre1 {
+    color: red;
+    font-size: 50px;
+    text-align: center
+}
+
+#autretitres {
+    color: green;
+    font-size: 35px;
+    text-align: left;
+    text-decoration-line: underline; 
+}
